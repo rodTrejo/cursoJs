@@ -11,13 +11,22 @@
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/arreglos.js"></script>
     <script type="text/javascript" src="js/clases_objetos.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        console.log("termina de cargar ... DOM");
+        main();
+        operadores();
+        condiciones();
+      };
+    </script>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+  
   </head>
 
   <body>
     <header>
       <img width="60" height="60" src="img/logo.png" />
-      <h1>Programación</h1>
+      <h1>Programación ....</h1>
     </header>
 
     <section id="contenido">
@@ -30,7 +39,15 @@
       </div>
 
       <div class="leccion" id="condiciones">
-
+        <label>Selecciona</label>
+        <select id="selectBolita">
+          <option value="">Ninguna</option>
+          <option value="roja">Bolita Roja</option>
+          <option value="amarilla">Bolita Amarilla</option>
+        </select>
+        <button onclick="mostrar()" >Mostrar</button>
+        <br><br>
+        <div id="display" ></div>
       </div>
 
       <div class="leccion" id="ciclos">
@@ -43,11 +60,6 @@
       <p>Copyright &copy; 2021 Rodrigo Trejo, Todos los derechos reservados.</p>
     </footer>
 
-    <script type="text/javascript">
-      window.onload = function () {
-        console.log("termina de cargar ... DOM");
-        main();
-      };
-    </script>
+    
   </body>
 </html>
