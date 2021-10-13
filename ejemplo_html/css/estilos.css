@@ -1,0 +1,43 @@
+html {
+    min-height: 100%;
+    position: relative;
+    
+}
+body {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+header{
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    background-color: beige;
+}
+
+h1{
+    color: rgba(11, 182, 224, 0.493);
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.774);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    text-align: center;
+}
+
+.leccion{
+    padding: 10px;
+}
+
+#contenido{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+}
+
+
