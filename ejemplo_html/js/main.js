@@ -6,4 +6,5 @@ main = function(){
     elm.innerHTML = "Hola Mundo de Javascript";
     div.appendChild(elm);
 
+    
 };

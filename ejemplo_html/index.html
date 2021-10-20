@@ -11,12 +11,19 @@
     <script type="text/javascript" src="js/funciones.js"></script>
     <script type="text/javascript" src="js/arreglos.js"></script>
     <script type="text/javascript" src="js/clases_objetos.js"></script>
+    <script type="text/javascript" src="js/ciclos.js"></script>
     <script type="text/javascript">
+
+      const BOLITA_ROJA = 'img/bolita_roja.png';
+      const BOLITA_AMARILLA = 'img/bolita_amarilla.png';
+
       window.onload = function () {
         console.log("termina de cargar ... DOM");
+        
         main();
         operadores();
         condiciones();
+        ciclos();
       };
     </script>
     <link rel="stylesheet" type="text/css" href="css/estilos.css" />
@@ -51,7 +58,7 @@
       </div>
 
       <div class="leccion" id="ciclos">
-
+        <div id="displayCiclo" ></div>
       </div>
 
     </section>
