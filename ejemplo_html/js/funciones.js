@@ -40,3 +40,68 @@ function obtieneNumeroAleatorio(min, max) {
     //Devuelve el máximo entero menor o igual a un número.
     return Math.floor(operacion);
 }
+
+borraDiv = function(seccion){
+    const div =document.getElementById(seccion);
+    div.innerHTML="";
+}
+
+muestraArreglo = function(seccion, arreglo){
+    for (let index = 0; index < arreglo.length; index++) {
+        
+        if(arreglo[index] === "roja"){
+            agregaImagen(BOLITA_ROJA, seccion);
+        }else{
+            agregaImagen(BOLITA_AMARILLA, seccion);
+        }
+        
+    }
+}
+
+resultado = function(){
+   
+    let valor = document.getElementById("valor").value;
+    console.log("resultado ", valor);
+    //el valor que este 1 y 99
+    if(valor < 1 || valor>99){
+        alert("el valor debe estar entre 1 y 99");
+    }else if(Math.floor(valor) != valor){
+        alert("El numero no puede contener decimales");
+    }else{
+        // 86 -> [8, 6]
+        // 86 -> 8/10 = 8 decenas , residuo unidades
+        let decenas = Math.floor(valor/10);
+        let unidades = valor - (decenas * 10);
+
+        let arregloDecenas = [];
+        let arregloUnidades = []; 
+        let bolita = 'roja';
+
+        console.log("Decenas ",decenas, " Unidades ", unidades);
+        for (let index = 0; index < decenas; index++) {
+            arregloDecenas.push("roja");
+        }
+
+        for (let index = 0; index < unidades; index++) {
+            arregloUnidades.push("amarilla");
+        }
+        borraDiv("Decenas");
+        borraDiv("Unidades");
+
+        muestraArreglo("Decenas", arregloDecenas);
+
+        muestraArreglo("Unidades", arregloUnidades);
+
+      
+    }
+
+    
+}
+
+//Generar numero decenas aleatorio 0-9
+//Generar numero unidades aleatorio 0-9
+// Validar que el numero de entrada sea el mismo que las bolitas
+//Al dar click en un boton
+
+resultadoInverso = function(){
+}
