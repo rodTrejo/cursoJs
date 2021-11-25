@@ -58,13 +58,23 @@ muestraArreglo = function(seccion, arreglo){
     }
 }
 
-resultado = function(){
+resultado = async() =>{
    
     let valor = document.getElementById("valor").value;
     console.log("resultado ", valor);
     //el valor que este 1 y 99
     if(valor < 1 || valor>99){
-        alert("el valor debe estar entre 1 y 99");
+
+        //realiza una peticion
+        const response = await fetch("http://127.0.0.1:3000/");
+        //Maneja la respuesta
+        const res = await response.text();
+        console.log("respuesta ", res);
+
+        alert(res);
+        
+
+        
     }else if(Math.floor(valor) != valor){
         alert("El numero no puede contener decimales");
     }else{
@@ -102,6 +112,56 @@ resultado = function(){
 //Generar numero unidades aleatorio 0-9
 // Validar que el numero de entrada sea el mismo que las bolitas
 //Al dar click en un boton
+let decenasGlobal;
+let unidadesGlobal;
 
-resultadoInverso = function(){
+generaBolitasAleatorias = function(){
+
+    decenasGlobal = obtieneNumeroAleatorio(0,9);
+    unidadesGlobal = obtieneNumeroAleatorio(0,9);
+    let arrDecenas = [];
+    let arrUnidades = [];
+    for (let index = 0; index < decenasGlobal; index++) {
+        arrDecenas.push('roja');
+        
+    }
+
+    for (let index = 0; index < unidadesGlobal; index++) {
+        arrUnidades.push('amarilla');
+        
+    }
+
+    borraDiv("Decenas2");
+    borraDiv("Unidades2");
+    muestraArreglo("Decenas2", arrDecenas);
+
+    muestraArreglo("Unidades2", arrUnidades);
+
+}
+
+validarAleatorio = function(){
+    let valor = document.getElementById("valor2").value;
+    let decenas = Math.floor(valor/10);
+    let unidades = valor - (decenas * 10);
+    console.log("valor ",valor, " decenas ", decenas, " unidades ", unidades);
+    console.log(" gUnidades ", unidadesGlobal, " gDecenas ", decenasGlobal);
+    //comparador and (y) or 
+    //En el and se deben cumplir todas las condiciones para
+    //que sea verdad
+    if(unidadesGlobal === unidades && decenasGlobal === decenas){
+        alert("resultado correcto");
+    
+    //En el or si una condicion es correcta la expresion es verdadera
+    }else if(unidadesGlobal === unidades || decenasGlobal === decenas){
+        if(unidadesGlobal !== unidades){
+            alert("Las unidades estan incorrectas");
+        }else{
+            alert("Las decenas estan incorrectas");
+        }
+        //alert("resultado parcialmente correcto");
+    }else{
+        alert("Resultado incorrecto, revisalo nuevamente");
+    }
+
+
 }
